@@ -16,6 +16,11 @@
 # FRP
 /dev/block/platform/soc\.0/7824900\.sdhci/by-name/persistent    u:object_r:frp_block_device:s0
 
+# Firmware
+/bt_firmware(/.*)?						u:object_r:firmware_file:s0
+/firmware-modem(/.*)?						u:object_r:firmware_file:s0
+/tombstones(/.*)?						u:object_r:firmware_file:s0
+
 # Fingerprint
 /dev/vfsspi                                                     u:object_r:vfsspi_device:s0
 /data/biometrics(/.*)?                                          u:object_r:biometrics_data_file:s0
