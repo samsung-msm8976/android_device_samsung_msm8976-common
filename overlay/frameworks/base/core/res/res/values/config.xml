@@ -234,4 +234,7 @@
 
     <!-- For performance and storage reasons, limit the number of fingerprints per user -->
     <integer name="config_fingerprintMaxTemplatesPerUser">4</integer>
+
+    <!-- Disable rounded corners on windows to improve graphics performance -->
+    <bool name="config_supportsRoundedCornersOnWindows">false</bool>
 </resources>
