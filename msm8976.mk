@@ -16,6 +16,7 @@
 #
 
 # inherit from the proprietary version
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 $(call inherit-product, vendor/samsung/msm8976-common/msm8976-common-vendor.mk)
 
 # Overlays
