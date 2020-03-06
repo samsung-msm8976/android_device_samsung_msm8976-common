@@ -51,6 +51,7 @@ persist.hwc.downscale_threshold=1.15
 ro.opengles.version=196610
 ro.sf.lcd_density=320
 debug.sf.enable_gl_backpressure=1
+debug.sf.latch_unsignaled=1
 
 # GPS
 persist.gps.qc_nlp_in_use=1
