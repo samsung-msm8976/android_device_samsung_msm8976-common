@@ -38,7 +38,7 @@ on boot
     setprop sys.usb.ffs.aio_compat 1
 
 on charger
-    setprop sys.usb.config mass_storage
+    setprop sys.usb.config mtp
 
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
