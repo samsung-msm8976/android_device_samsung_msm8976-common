@@ -67,6 +67,7 @@ media.aac_51_output_enabled=true
 vidc.enc.narrow.searchrange=1
 debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
+debug.stagefright.ccodec=0
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
