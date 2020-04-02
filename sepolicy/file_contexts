@@ -32,6 +32,11 @@
 # mDNIe
 /sys/devices/virtual/mdnie/mdnie(/.*)?                          u:object_r:sysfs_mdnie:s0
 
+# Rootfs
+/bt_firmware(/.*)?						u:object_r:firmware_file:s0
+/firmware-modem(/.*)?						u:object_r:firmware_file:s0
+/tombstones(/.*)?						u:object_r:firmware_file:s0
+
 # SEC
 /sys/devices/virtual/sec/sec_key(/.*)?                          u:object_r:sysfs_sec_key:s0
 
