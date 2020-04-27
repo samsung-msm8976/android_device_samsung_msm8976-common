@@ -1486,3 +1486,6 @@ on property:sys.shutdown.requested=*
 on property:vold.decrypt=trigger_restart_framework
     stop vendor.camera-provider-2-4
     start vendor.camera-provider-2-4
+    
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
