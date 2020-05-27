@@ -242,7 +242,7 @@ on property:sys.io.scheduler=row
     write /sys/block/mmcblk0/queue/nr_requests 128
 
     # Optimal read ahead value
-    write /sys/block/mmcblk0/queue/read_ahead_kb 1024
+    write /sys/block/mmcblk0/queue/read_ahead 2048
 
     # Tag as non rotational devices
     write /sys/block/mmcblk0/queue/rotational 0
