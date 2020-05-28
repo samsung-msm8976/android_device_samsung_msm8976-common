@@ -224,8 +224,9 @@ on property:init.svc.recovery=running
 on property:sys.io.scheduler=row
     # Create queue entry for row-iosched to apply the tweaks
     write /sys/block/mmcblk0/queue/scheduler row
+    write /sys/block/mmcblk1/queue/scheduler row
 
-    # Tweaks for row-iosched 
+    # Tweaks for row-iosched (internal mmc-flash)
     write /sys/block/mmcblk0/queue/iosched/hp_read_quantum 100          
     write /sys/block/mmcblk0/queue/iosched/hp_swrite_quantum 5
     write /sys/block/mmcblk0/queue/iosched/rp_read_quantum 75
@@ -238,26 +239,48 @@ on property:sys.io.scheduler=row
     write /sys/block/mmcblk0/queue/iosched/rd_idle_data 10
     write /sys/block/mmcblk0/queue/iosched/rd_idle_data_freq 25
 
+    # Tweaks for row-iosched (external sd-card)
+    write /sys/block/mmcblk1/queue/iosched/hp_read_quantum 100          
+    write /sys/block/mmcblk1/queue/iosched/hp_swrite_quantum 5
+    write /sys/block/mmcblk1/queue/iosched/rp_read_quantum 75
+    write /sys/block/mmcblk1/queue/iosched/rp_swrite_quantum 4
+    write /sys/block/mmcblk1/queue/iosched/rp_write_quantum 4
+    write /sys/block/mmcblk1/queue/iosched/lp_read_quantum 3
+    write /sys/block/mmcblk1/queue/iosched/lp_swrite_quantum 2
+    write /sys/block/mmcblk1/queue/iosched/read_idle 10
+    write /sys/block/mmcblk1/queue/iosched/read_idle_freq 25
+    write /sys/block/mmcblk1/queue/iosched/rd_idle_data 10
+    write /sys/block/mmcblk1/queue/iosched/rd_idle_data_freq 25
+
     # Balancing the write queueing for less latency
     write /sys/block/mmcblk0/queue/nr_requests 128
+    write /sys/block/mmcblk1/queue/nr_requests 128
 
-    # Optimal read ahead value
-    write /sys/block/mmcblk0/queue/read_ahead 2048
+    # Optimal read ahead value for 32GB storage
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 2048
+    write /sys/block/mmcblk1/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk1/bdi/read_ahead_kb 2048
 
     # Tag as non rotational devices
     write /sys/block/mmcblk0/queue/rotational 0
+    write /sys/block/mmcblk1/queue/rotational 0
 
     # Disable iostats to reduce overhead
     write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk1/queue/iostats 0
 
     # Disable random, this is important for eMMC
     write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/block/mmcblk1/queue/add_random 0
 
     # Merge affinity to let it freely finish on any thread
     write /sys/block/mmcblk0/queue/rq_affinity 0
+    write /sys/block/mmcblk1/queue/rq_affinity 0
 
     # Setting minimum ratio of caching for QoS
     write /sys/block/mmcblk0/bdi/min_ratio 5
+    write /sys/block/mmcblk1/bdi/min_ratio 5
 
 on property:dev.bootcomplete=1
     trigger enable-low-power
