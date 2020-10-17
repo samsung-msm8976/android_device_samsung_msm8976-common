@@ -53,6 +53,7 @@ ro.sf.lcd_density=320
 debug.sf.latch_unsignaled=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
+debug.hwui.profile=true
 
 # GPS
 persist.gps.qc_nlp_in_use=1
